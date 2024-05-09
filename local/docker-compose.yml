@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  spia:
+    build: 
+      context: ../
+      args:
+        REACT_APP_LOCAL_IMAGE_PATH: ${REACT_APP_LOCAL_IMAGE_PATH}
+        REACT_APP_API_URL: ${REACT_APP_API_URL}
+        REACT_APP_CLIENT_ID_GOOGLE: ${REACT_APP_CLIENT_ID_GOOGLE}
+        REACT_APP_CLIENT_USER_INFO: ${REACT_APP_CLIENT_USER_INFO}
+        REACT_APP_IA: ${REACT_APP_IA}
+    platform: linux/amd64
+    container_name: spia      
+    volumes:
+      - ./spia/spia.conf:/etc/nginx/conf.d/default.conf
+      - ./logs:/var/log/nginx
+    ports:
+      - "3173:80"
+    restart: on-failure
+    networks:
+      - iteams_network
+
+networks:
+  iteams_network:

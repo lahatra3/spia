@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card_menue_hidden {
+  @apply hidden absolute md:relative mt-44 md:mt-0 md:pt-0 flex flex-col md:flex-row gap-2 md:gap-10 w-full md:justify-center md:items-center items-end text-lg;
+}
+
+.card_menue {
+  @apply absolute md:relative mt-44 md:mt-0 md:pt-0 flex flex-col md:flex-row gap-2 md:gap-10 w-full md:justify-center md:items-center items-end text-lg;
+}
+
+.title_color_mode_white {
+  @apply dark:text-gray-800;
+}
+
+.text_color_mode_white {
+  @apply dark:text-gray-600;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Fluid webgl ------------------------------------------------------------------------------------------------------------------ */
+html,
+body {
+  /* overflow-x: hidden; */
+  user-select: none;
+  /* background-color: black; */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  /* background: transparent; */
+}
+
+/* Card light effect ------------------------------------------------------------------------------------------------------------------ */
+:root {
+  --bg-color: rgb(20, 20, 20);
+  --card-color: rgb(23, 23, 23);
+}
+
+/* body {
+  align-items: center;
+  background-color: var(--bg-color);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 0px;
+  overflow: hidden;
+  padding: 0px;
+} */
+
+/* #cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 916px;
+  width: calc(100% - 20px);
+} */
+
+#cards:hover > .card::after {
+  opacity: 1;
+}
+
+.card {
+  /* background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  height: 260px;
+  flex-direction: column; */
+  position: relative;
+  /* width: 300px; */
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card::before,
+.card::after {
+  border-radius: inherit;
+  content: '';
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.card::after {
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.4),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+/* .card > .card-content {
+  background-color: var(--card-color);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  inset: 1px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+} */
+
+.loader {
+  border-top-color: #3498db;
+  -webkit-animation: spinner 1.5s linear infinite;
+  animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* textarea ----------------------------------------------------- */
+/* .textarea {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+}
+
+.textarea[contenteditable]:empty::before {
+  content: 'Placeholder still possible';
+  color: gray;
+} */
+/* .textarea-container {
+  position: relative;
+} */
+/* .textarea-container textarea {
+  box-sizing: border-box;
+} */
+/* .textarea-container button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+} */
+
+/* Listening wave ------------------------------------------------------------ */
+
+#wave {
+  height: 70px;
+  width: 70px;
+  fill: #fff;
+}
+
+/* @for $i from 1 through 9 { */
+#Line_1 {
+  animation: pulse 1s infinite;
+  animation-delay: 1 * 0.15s;
+}
+#Line_2 {
+  animation: pulse 1s infinite;
+  animation-delay: 2 * 0.15s;
+}
+#Line_3 {
+  animation: pulse 1s infinite;
+  animation-delay: 3 * 0.15s;
+}
+#Line_4 {
+  animation: pulse 1s infinite;
+  animation-delay: 4 * 0.15s;
+}
+#Line_5 {
+  animation: pulse 1s infinite;
+  animation-delay: 5 * 0.15s;
+}
+#Line_6 {
+  animation: pulse 1s infinite;
+  animation-delay: 6 * 0.15s;
+}
+#Line_7 {
+  animation: pulse 1s infinite;
+  animation-delay: 7 * 0.15s;
+}
+#Line_8 {
+  animation: pulse 1s infinite;
+  animation-delay: 8 * 0.15s;
+}
+#Line_9 {
+  animation: pulse 1s infinite;
+  animation-delay: 9 * 0.15s;
+}
+/* } */
+
+@keyframes pulse {
+  0% {
+    transform: scaleY(1);
+    transform-origin: 50% 50%;
+  }
+
+  50% {
+    transform: scaleY(0.7);
+    transform-origin: 50% 50%;
+  }
+
+  100% {
+    transform: scaleY(1);
+    transform-origin: 50% 50%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

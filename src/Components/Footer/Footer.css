@@ -1,0 +1,12 @@
+.text_logo {
+    letter-spacing: .9px;
+}
+
+h4 {
+    white-space: nowrap;
+    letter-spacing: .9px;
+}
+
+ul li {
+    white-space: nowrap;
+}
